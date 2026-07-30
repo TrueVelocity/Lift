@@ -1,51 +1,79 @@
-# Lift (LFT Archive Manager)
+# Lift™ — LFT Archive Manager
 
-Electron app for compressing files into `.lft` archives (ZIP under the hood) and extracting them.
+**Lift** is a desktop archive manager that compresses and extracts files using the custom **`.lft`** format.
 
-## Setup
+> It “lifts” your packages for you.
+
+---
+
+## Disclaimer
+
+Lift (`.lft`) is an independent file format created by [**TrueVelocity**](https://github.com/TrueVelocity).
+
+We are **not** affiliated with, endorsed by, or connected to PKWARE™ or the creators of the `.zip` format.
+
+---
+
+## A question people keep asking
+
+### Am I allowed to copy your project?
+
+<div align="center">
+
+**↓↓↓ Check out my answer ↓↓↓**
+
+<br/>
+
+**Nah. It’s protected by my own license.**
+
+</div>
+
+---
+
+## What is Lift?
+
+Lift is a file compression and archive manager built with **Electron**.
+
+- Add or drag & drop files
++ or
+- Select what you want.
+- **Compress** into a `.lft` archive  
+- **Extract** `.lft` archives back to a folder  
+- **Inspect** what’s inside an archive  
+- Track activity under **Recent** and **Archives**
+
+`.lft` is **not** a renamed ZIP. Archives use a custom container with a Lift magic header, with compressed payload data under the hood.
+
+---
+
+## Features
+
+| Feature | Description |
+|--------|-------------|
+| **Compress** | Pack selected files into a `.lft` archive |
+| **Extract** | Unpack a `.lft` archive to a folder of your choice |
+| **Inspect** | Preview files inside a `.lft` without extracting |
+| **Recent** | History of compress / extract actions |
+| **Archives** | List of `.lft` archives you’ve created |
+| **Drag & drop** | Drop files straight onto the window |
+| **Themes** | Background presets + custom color |
+| **Frameless UI** | Clean dark interface with custom window controls |
+
+---
+
+---
+
+## Screenshots
+
+Add your screenshots here, for example:
+![Dashboard](docs/dashboard.png)
+![Archives](docs/archives.png)
+
+
 
 ```bash
-cd lft-archive-manager
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+cd YOUR_REPO
 npm install
 npm start
 ```
-
-## Project structure
-
-```
-lft-archive-manager/
-├── main.js          # Electron main process (window, IPC, JSZip)
-├── preload.js       # Secure bridge → window.electronAPI
-├── package.json
-└── public/
-    ├── index.html
-    ├── styles.css
-    ├── app.js       # Renderer UI logic
-    ├── LFT-logo.png # (optional – place your logo here)
-    └── LFT-logo.ico
-```
-
-## What was fixed
-
-1. **Duplicate / conflicting logic** – Removed the huge inline `<script>` from `index.html`. All UI logic lives in `app.js`.
-2. **Compress / Extract were stubs** – They only showed toasts. Now they talk to the main process via `electronAPI.compressLft` / `extractLft`.
-3. **Broken IPC** – Preload exposed `closeWindow` but main listened for `window:close`. Fixed channel names and API surface.
-4. **Files never read as binary** – Compress needs real bytes. Files are now read with `FileReader.readAsArrayBuffer` and stored as `content`.
-5. **Fake JSON “archives”** – Main process builds real ZIP archives with JSZip and saves them as `.lft`. Extract unpacks ZIP to a chosen folder.
-6. **Inspector** – Double-click or context-menu “Inspect” on a `.lft` lists files inside the archive (via `lft:inspect`).
-7. **Window controls** – Minimize / close wired to Electron.
-8. **CSS / HTML cleanup** – Single coherent stylesheet, proper empty-state class, inspector close button, no conflicting inline styles.
-
-## Usage
-
-1. **Add Files** or drag & drop into the grid.
-2. Click cards to select.
-3. **Compress Selected** → save dialog → creates a `.lft` (ZIP).
-4. Add the `.lft` back into the app (or keep it selected if still in memory), then **Extract Selected** → choose folder.
-5. Right-click a card for Rename / Inspect / Delete.
-6. Double-click a `.lft` to open the Inspector panel.
-
-## Notes
-
-- Place `LFT-logo.png` and `LFT-logo.ico` in `public/` if you have them (the HTML falls back gracefully if missing).
-- Browser-only (opening `index.html` directly) runs in demo mode: compress creates a lightweight JSON blob instead of a real ZIP.
