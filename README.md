@@ -1,5 +1,14 @@
 # Lift™ — LFT Archive Manager
+## Badges
+[![True.Velocity](https://img.shields.io/badge/Creator-True.Velocity-blue?style=for-the-badge)](https://github.com/TrueVelocity)
+<br>
+![Lift](https://img.shields.io/badge/Lift-Archive%20Manager-purple?style=for-the-badge)
+![LFT Format](https://img.shields.io/badge/File%20Format-.LFT-orange?style=for-the-badge)
+![License: Proprietary](https://img.shields.io/badge/License-Proprietary-red?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-1.0.7-gold?style=for-the-badge)
+<br>
 
+---
 **Lift** is a desktop archive manager that compresses and extracts files using the custom **`.lft`** format.
 
 > It “lifts” your packages for you.
