@@ -71,9 +71,3 @@ Lift is a file compression and archive manager built with **Electron**.
 
 
 
-```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-cd YOUR_REPO
-npm install
-npm start
-```
