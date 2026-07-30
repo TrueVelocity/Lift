@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lift</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" href="./LFT-logo.ico" />
+</head>
+<body>
+  <div id="app">
+    <div class="bg-gradient-overlay" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="window-title">
+        <span class="title-dot"></span>
+        Lift
+      </div>
+      <div class="window-controls">
+        <button id="min-btn" class="win-btn" title="Minimize" aria-label="Minimize">
+          <svg width="10" height="10" viewBox="0 0 10 10"><path d="M1 5h8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+        <button id="close-btn" class="win-btn win-btn-close" title="Close" aria-label="Close">
+          <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 2l6 6M8 2l-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <img src="./LFT-logo.png" class="brand-logo" alt="" onerror="this.style.display='none'" />
+          <div>
+            <div class="brand-name">Lift</div>
+            <div class="brand-tag">Archive Manager</div>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav">
+          <button class="sidebar-item active" data-page="dashboard">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>
+            Dashboard
+          </button>
+          <button class="sidebar-item" data-page="recent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+            Recent
+          </button>
+          <button class="sidebar-item" data-page="archives">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>
+            Archives
+          </button>
+          <button class="sidebar-item" data-page="settings">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 11 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="status-pill"><span class="status-dot"></span> Ready</div>
+          <div class="sidebar-meta">LFT v1.0.7 · Better User Interface</div>
+        </div>
+      </aside>
+
+      <main id="main-content">
+        <div class="main-toolbar">
+          <div class="toolbar-left">
+            <h1 class="page-title">Your Files</h1>
+          </div>
+          <div class="toolbar">
+            <button id="add-files-btn" class="btn btn-primary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+              Add Files
+            </button>
+            <button id="compress-btn" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4"/></svg>
+              Compress
+            </button>
+            <button id="extract-btn" class="btn btn-ghost">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+              Extract
+            </button>
+            <div class="settings-wrapper">
+              <button id="settings-btn" class="btn btn-icon" title="Appearance">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 11 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              </button>
+              <div id="settings-dropdown" class="settings-dropdown">
+                <div class="dropdown-label">Background</div>
+                <div class="bg-presets" id="bg-presets"></div>
+                <div class="custom-color">
+                  <span>Custom</span>
+                  <div class="color-picker-wrapper">
+                    <input type="color" id="custom-bg-picker" value="#0A0A0F" />
+                    <div class="color-preview" id="custom-bg-preview"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="pages">
+          <section id="page-dashboard" class="app-page visible">
+            <div class="toolbar-bar">
+              <div class="search-wrapper">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input id="search-input" type="text" placeholder="Search files…" autocomplete="off" />
+              </div>
+              <select id="sort-select" aria-label="Sort files">
+                <option value="name">Name</option>
+                <option value="size">Size</option>
+                <option value="type">Type</option>
+              </select>
+            </div>
+
+            <div class="file-grid-container">
+              <div id="dropzone-overlay" class="dropzone-overlay">
+                <div class="dropzone-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 5v14M5 12h14"/>
+                  </svg>
+                  <p>Drop files here</p>
+                </div>
+              </div>
+
+              <div id="file-grid" class="file-grid"></div>
+
+              <div id="empty-state" class="empty-state">
+                <div class="empty-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <path d="M14 2v6h6"/>
+                  </svg>
+                </div>
+                <h3>No files yet</h3>
+                <p>Add or drop files to get started</p>
+              </div>
+            </div>
+
+            <div id="selection-panel" class="selection-panel">
+              <div class="selection-inner">
+                <div class="selection-header">
+                  <div class="selection-title">
+                    <span class="selection-label">Selected</span>
+                    <span id="selection-count" class="selection-count">0 items</span>
+                  </div>
+                  <button id="clear-selection-btn" class="clear-btn" title="Clear selection" aria-label="Clear selection">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                  </button>
+                </div>
+                <div id="selection-list" class="selection-list"></div>
+                <div class="selection-buttons">
+                  <button id="compress-selected-btn" class="btn btn-primary btn-sm">Compress Selected</button>
+                  <button id="extract-selected-btn" class="btn btn-ghost btn-sm">Extract Selected</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="page-recent" class="app-page">
+            <div class="page-body">
+              <div id="recent-list" class="activity-list"></div>
+              <div id="recent-empty" class="empty-inline">
+                <h3>No recent activity</h3>
+                <p>Compress or extract files and they will show up here.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="page-archives" class="app-page">
+            <div class="page-body">
+              <div id="archives-list" class="activity-list"></div>
+              <div id="archives-empty" class="empty-inline">
+                <h3>No archives yet</h3>
+                <p>Created .lft archives will appear here after you compress files.</p>
+              </div>
+            </div>
+          </section>
+
+          <section id="page-settings" class="app-page">
+            <div class="page-body settings-page">
+              <div class="settings-block">
+                <h3>General</h3>
+                <p>Share ideas on the project GitHub.</p>
+              </div>
+              <div class="settings-block">
+                <h3>Appearance</h3>
+                <p>Use the gear icon in the toolbar for background presets.</p>
+              </div>
+              <div class="settings-block">
+                <h3>Advanced</h3>
+                <p>More options coming soon.</p>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <aside id="inspector-panel">
+          <div class="inspector-header">
+            <div>
+              <h2>Inspector</h2>
+              <p class="inspector-sub">.lft archive contents</p>
+            </div>
+            <button id="inspector-close" class="btn btn-icon" title="Close" aria-label="Close inspector">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+          </div>
+          <div id="inspector-content"></div>
+        </aside>
+      </main>
+    </div>
+
+    <div id="error-modal" class="modal-overlay">
+      <div class="modal error-modal-content">
+        <div class="modal-header">
+          <div class="modal-icon error-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <div class="modal-text">
+            <h3>Error</h3>
+            <p id="error-message">Something went wrong.</p>
+          </div>
+          <button id="error-close" class="modal-x" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <button id="error-gotit" class="btn btn-ghost btn-block">Got it</button>
+      </div>
+    </div>
+
+    <div id="rename-modal" class="modal-overlay">
+      <div class="modal rename-modal-content">
+        <div class="modal-header">
+          <div class="modal-icon rename-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"/><path d="M16.5 3.5l4 4L7 21H3v-4L16.5 3.5z"/>
+            </svg>
+          </div>
+          <div class="modal-text">
+            <h3>Rename</h3>
+            <p>Enter a new name for this file.</p>
+          </div>
+          <button id="rename-close" class="modal-x" aria-label="Close">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+        <input id="rename-input" type="text" placeholder="New file name…" />
+        <div class="modal-actions">
+          <button id="rename-cancel" class="btn btn-ghost">Cancel</button>
+          <button id="rename-confirm" class="btn btn-primary">Rename</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast">
+      <div class="toast-title" id="toast-title">Notification</div>
+      <div class="toast-desc" id="toast-desc"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
