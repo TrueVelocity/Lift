@@ -67,7 +67,7 @@ Lift is a file compression and archive manager built with **Electron**.
 
 
 ![Dashboard](UI_Showcase.png)
-![Archives](docs/archives.png)
+![Archives](Files_Showcase.png)
 
 
 
