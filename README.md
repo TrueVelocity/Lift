@@ -1,4 +1,4 @@
-# Lift™ — LFT Archive Manager
+# Lift™ — Archive Manager
 ## Badges
 [![True.Velocity](https://img.shields.io/badge/Creator-True.Velocity-blue?style=for-the-badge)](https://github.com/TrueVelocity)
 <br>
@@ -9,8 +9,9 @@
 <br>
 
 ---
-**Lift** is a desktop archive manager that compresses and extracts files using the custom **`.lft`** format.
+**Lift** is a desktop archive manager that compresses and extracts files using the custom **`.lft`** format. but, in our newer releases, you are able to compress or extract: Zip & Rar
 
+Why did i named this program lift?
 > It “lifts” your packages for you.
 
 ---
@@ -43,11 +44,9 @@ We are **not** affiliated with, endorsed by, or connected to PKWARE™ or the cr
 
 Lift is a file compression and archive manager built with **Electron**.
 
-- Add or drag & drop files
-+ or
-- Select what you want.
-- **Compress** into a `.lft` archive  
-- **Extract** `.lft` archives back to a folder  
+- Add or drag & drop files / Select what you want.
+- **Compress** into a `.lft` / `.zip` / `.rar` archive  
+- **Extract** `.lft` \ `.zip` \ `.rar` archives back to a folder  
 - **Inspect** what’s inside an archive  
 - Track activity under **Recent** and **Archives**
 
@@ -59,11 +58,11 @@ Lift is a file compression and archive manager built with **Electron**.
 
 | Feature | Description |
 |--------|-------------|
-| **Compress** | Pack selected files into a `.lft` archive |
-| **Extract** | Unpack a `.lft` archive to a folder of your choice |
-| **Inspect** | Preview files inside a `.lft` without extracting |
+| **Compress** | Pack selected files into a `.lft` and etc' archives |
+| **Extract** | Unpack a `.lft` and etc' archive to a folder of your choice |
+| **Inspect** | Preview files inside a `.lft` and etc' without extracting |
 | **Recent** | History of compress / extract actions |
-| **Archives** | List of `.lft` archives you’ve created |
+| **Archives** | List of `.lft` and etc' archives you’ve created |
 | **Drag & drop** | Drop files straight onto the window |
 | **Themes** | Background presets + custom color |
 | **Frameless UI** | Clean dark interface with custom window controls |
